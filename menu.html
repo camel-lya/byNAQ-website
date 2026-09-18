@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Browse our homemade desserts and place an order.">
+
+    <title>Menu | byNAQ</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
+          rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+        <a href="index.html">byNAQ</a>
+    </div>
+
+    <button class="menu-toggle"
+            id="menuToggle">
+        ☰
+    </button>
+
+    <nav id="navMenu">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="menu.html"
+           class="active">
+            Menu
+        </a>
+
+        <a href="about.html">
+            About Us
+        </a>
+
+        <a href="bulk-order.html">
+            Bulk Orders
+        </a>
+
+        <button class="cart-button"
+                onclick="openCart()">
+
+            🛒 Cart
+            <span id="cartCount">0</span>
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- PAGE HEADER -->
+
+<section class="page-header">
+
+    <p class="eyebrow">
+        FROM OUR KITCHEN
+    </p>
+
+    <h1>
+        Our Menu
+    </h1>
+
+    <p>
+        A little sweetness for every occasion.
+    </p>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="menu-section section">
+
+    <div class="product-grid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <article class="product-card">
+
+            <div class="product-image">
+
+                <img src="images/cake1.jpeg"
+                     alt="No-bake Biscoff cheesecake">
+
+                <span class="product-tag">
+                    Signature
+                </span>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    CHEESECAKE
+                </p>
+
+                <h2>
+                    No-Bake Biscoff Cheesecake
+                </h2>
+
+                <p>
+                    Creamy Biscoff cheesecake
+                    with a buttery biscuit base.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="product-price">
+                        RM 13.00
+                    </span>
+
+                    <button class="add-cart"
+                            onclick="addToCart(
+                            'No-Bake Biscoff Cheesecake',
+                            13.00
+                            )">
+
+                        Add +
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- FUTURE PRODUCT -->
+
+        <article class="product-card coming-soon">
+
+            <div class="product-image">
+
+                <div class="coming-soon-text">
+                  <img src="images/tiramisu.jpeg" alt="Tiramisu">
+                </div> 
+
+                <span class="product-tag">
+                     Coming Soon ♡
+                </span>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    SOMETHING NEW
+                </p>
+
+                <h2>
+                    A New Favourite
+                </h2>
+
+                <p>
+                    We're working on something
+                    delicious for you.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- CART -->
+
+<div id="cartModal"
+     class="modal">
+
+    <div class="modal-content cart-content">
+
+        <button class="modal-close"
+                onclick="closeCart()">
+            ×
+        </button>
+
+        <p class="eyebrow">
+            YOUR ORDER
+        </p>
+
+        <h2>
+            Shopping Cart
+        </h2>
+
+
+        <div id="cartItems">
+
+            <p class="empty-cart">
+                Your cart is empty.
+            </p>
+
+        </div>
+
+
+        <div class="cart-total">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                RM 0.00
+            </strong>
+
+        </div>
+
+
+        <button class="btn btn-primary full-width"
+                onclick="checkout()">
+
+            Proceed to Order
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ORDER MODAL -->
+
+<div id="orderModal"
+     class="modal">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+                onclick="closeOrder()">
+            ×
+        </button>
+
+        <p class="eyebrow">
+            ALMOST THERE
+        </p>
+
+        <h2>
+            Complete Your Order
+        </h2>
+
+        <form id="orderForm">
+
+            <label>
+                Name
+            </label>
+
+            <input type="text"
+                   id="customerName"
+                   required>
+
+
+            <label>
+                WhatsApp Number
+            </label>
+
+            <input type="tel"
+                   id="customerPhone"
+                   required>
+
+
+            <label>
+                Preferred Date
+            </label>
+
+            <input type="date"
+                   id="orderDate"
+                   required>
+
+
+            <label>
+                Notes
+            </label>
+
+            <textarea id="orderNotes"
+                      rows="4"
+                      placeholder="Anything we should know?"></textarea>
+
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Submit Order
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 byNAQ. Made with love.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
+
